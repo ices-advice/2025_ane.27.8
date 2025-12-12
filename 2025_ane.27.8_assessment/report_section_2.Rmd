@@ -1,0 +1,621 @@
+---
+output:
+  word_document:
+    fig_caption: yes
+    reference_docx: "boot/data/sec_02_template.docx"
+    toc: true
+bibliography: "report_biblio.bib"
+# csl: "boot/data/ices-journal-of-marine-science.csl" 
+csl: "https://www.zotero.org/styles/ices-journal-of-marine-science"
+  # alternatively, we could use officedown instead of word_document
+  # officedown::rdocx_document:
+  # BUT in officedown we need to specify the table style
+    # tables:
+    #   style: "Normal Table"  
+  # AND officedown doesn't keep the margins from the template and need to be specified by hand
+  # word_document keeps the margins perfectly
+    # page_size: 
+    #   width: 8.3
+    #   height: 11.7
+    #   orient: "portrait"
+    # page_margins:
+    #   bottom: 1
+    #   top: 1
+    #   right: 1.25
+    #   left: 1.25
+    #   header: 0.5
+    #   footer: 0.5
+    #   gutter: 0.5
+---
+
+```{r pkgs, echo=FALSE, message=FALSE, warning=FALSE}
+library(knitr)
+library(icesAdvice)
+library(flextable)
+library(FLCore)
+library(officedown)
+library(officer)
+```
+
+```{r setup, knitr, echo=FALSE, message=FALSE, warning=FALSE}
+opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, fig.pos='!hbt')
+
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+
+# To print the inline numbers using normal notation and not scientific notation.
+options(scipen=999)
+
+```
+
+```{r caption_settings}
+tabruns.start <- list(
+  # run_word_field("STYLEREF 2 \\s"), 
+  # ftext("."),
+  run_autonum(seq_id = "Table", pre_label = "", post_label = "", tnd=3, tns=".", start=1)
+)
+
+tabruns <- list(
+  run_autonum(seq_id = "Table", pre_label = "", post_label = "", tnd=3, tns=".")
+)
+
+tabruns2.start <- list(
+  # run_word_field("STYLEREF 2 \\s"), 
+  # ftext("."),
+  run_autonum(seq_id = "Table", pre_label = "", post_label = "", tnd=2, tns=".", start=1)
+)
+
+tabruns2 <- list(
+  run_autonum(seq_id = "Table", pre_label = "", post_label = "", tnd=2, tns=".")
+)
+
+figruns.start <- list(
+  run_autonum(seq_id = "Figure", pre_label = "", post_label = "", tnd=3, tns=".", start=1)
+)
+
+figruns <- list(
+  run_autonum(seq_id = "Figure", pre_label = "", post_label = "", tnd=3, tns=".")
+)
+
+figruns2.start <- list(
+  run_autonum(seq_id = "Figure", pre_label = "", post_label = "", tnd=2, tns=".", start=1)
+)
+
+figruns2 <- list(
+  run_autonum(seq_id = "Figure", pre_label = "", post_label = "", tnd=2, tns=".")
+)
+```
+
+```{r officer_landscape}
+op_section <- prop_section(type = "continuous")
+close_section <- prop_section(
+    page_size = page_size(orient = "landscape"), 
+    type = "continuous")
+```
+
+```{r highlight_text}
+# define function to highlight text in yellow for revision 
+# https://stackoverflow.com/questions/73355974/highlight-text-inline-r-markdown-with-reference-docx
+library(officer)
+ft <- officer::fp_text(shading.color = "yellow")
+word_spec <- function(x, prop = ft) ftext(text = toString(x) ,prop =  ft)
+```
+
+```{r load}
+# load("data/input.RData") 
+# load("report/tables_run.RData")
+# load("report/tables_stf.RData")
+load("report/tables_report.RData")
+
+# refpts <- read.csv("data/refpts.csv")
+
+# years are not correctly updated in the text yet, this version needs to be updated manually in word
+# this .rmd will be improved for next year
+ass_y<-2025
+next_y<-ass_y +1
+prev_y<-ass_y-1
+
+```
+
+\newpage
+
+# Bay of Biscay anchovy
+
+## ACOM advice, STECF advice and political decisions
+
+<!-- In 2013 and 2014, the STECF evaluated a set of harvest control rules for the management of the Bay of Biscay anchovy stock [@STECF2013; @STECF2014]. The European Commission, EU Member States and stakeholders chose harvest control rule named G4 with a harvest rate of 0.45. ICES reviewed this harvest control rule in 2015 and concluded that it was precautionary (Annex 5 in @WGHANSA2015). Subsequently, in December 2015, ICES advised that “when the management plan is applied, catches in 2016 should be no more than 25 000 tonnes”. In January 2016 the Council established the TAC in 2016 for the Bay of Biscay anchovy stock at 25 000 tonnes (Council Regulation No 72/2016). -->
+
+<!-- In May 2016, based on the good state of the stock, the South West Waters Advisory Council (SWWAC) asked for a change in the harvest control rule used for management to rule G3 with a rate of exploitation of 0.4 and an increase of the fishing opportunities for 2016 from 25 000 to 33 000 t (SWWAC Advice 101 released on 05/05/2016). In June, the Council increased the 2016 TAC to 33 000 t (Council Regulation No 891/2016), on the basis that “The stock biomass and recruitment of anchovy in the Bay of Biscay are among the highest in the historical time-series, thus allowing a higher precautionary TAC in 2016 in accordance with the management strategy assessed by the Scientific, Technical and Economic Committee for Fisheries (STECF) in 2014”. -->
+
+<!-- This new harvest control rule has formed the basis of the ICES advice and the TAC subsequently established by the Council from 2017 onwards [@uriarte_etal_2023; @sanchez_etal_2019]. -->
+
+<!-- In December `r ass_y-1` ICES advised that "when the EU management plan is applied, catches in `r ass_y` should be no more than 33 000 tonnes" [@Advice2023]. -->
+
+<!-- In January `r ass_y` the Council established the TAC in `r ass_y` for the Bay of Biscay anchovy stock at 33 000 tonnes (Council Regulation (EU) 2024/257), from which 90% corresponded to Spain and 10% to France. However, these percentages may be modified due to bilateral agreements between countries. -->
+
+<!-- Regarding the landing obligation regulation that aims at progressively eliminate discards in all Union fisheries, in October 2014 the European Commission established a discard plan for certain pelagic species in southwestern waters (No. 1394/2014). This included an exemption from the landing obligation for anchovy caught in artisanal purse-seine fisheries based on evidence of high survivability and de minimis exemptions both in the pelagic trawl fishery and the purse-seine fishery from 2015 to 2017. These exemptions have been extended several times through various delegated regulations (Commission Delegated Regulation 2018/188, Commission Delegated Regulation 2020/2015, Commission Delegated Regulation 2023/2623), the most recent one being for the period 2024-2027. -->
+
+## The fishery in `r prev_y` and `r ass_y`
+
+<!-- ### Fishing fleets -->
+
+<!-- Two fleets operate on anchovy in the Bay of Biscay: Spanish purse-seines (operating mainly during spring) and the French fleet constituted of purse-seiners (the Basque ones operating mainly in spring and the Breton ones in autumn) and pelagic trawlers (operating mainly during the second half of the year but with decreasing catches along years). -->
+
+<!-- Since the reopening of the fishery in 2010 the number of fishing licences for anchovy in Spain have been oscillating between 149 and 175. Since 2016, the number of French purse-seiners able to catch anchovy is around 28. The exact number of vessels is not fixed, due to important movements in this fleet. Most of them are based in Brittany. The number of Basque purse-seiners has decreased progressively and some of them have joined the North of the Bay of Biscay in the last years. The real target species of these vessels is sardine, and anchovy is more opportunistic in summer or autumn. -->
+
+<!-- The number of French pelagic trawlers decreased drastically during the closure of anchovy fishery (2005–2009) because they were targeting mainly anchovy and tuna. Currently around 12 pairs of trawlers (\~24 vessels) are able to target anchovy. In the last years a shift has occurred on the French anchovy fishery. Pair pelagic trawlers mainly targeted tuna between July and October, and single pelagic trawlers didn't catch anchovy. According to the very low price (anchovies were too small for the market), vessels have reported their fishing effort on other species, particularly tuna and sardine. -->
+
+<!-- A more complete description of the fisheries is available in the stock annex. The transformation of the anchovy fishery system after the fishery closure has also been analysed by @beckensteiner_etal_2024. -->
+
+<!-- ### Catches -->
+
+<!-- Historical catches are presented in Table `r run_reference(id = "tab_totalcatch")` and Figure `r run_reference(id="fig_catch")`. Total catches in `r prev_y` were 30 370 tonnes, from which 27 667 corresponded to Spain and 2703 to France. From the Spanish catches, 27 tonnes corresponded to anchovy used as live bait for tuna fishing. Discards were less than 0.1% of the total catch and they are considered negligible for this stock. -->
+
+<!-- The series of monthly catches are shown in Table `r run_reference(id = "tab_catchmonth")`. In `r prev_y`, most of the catches occurred between April and May, where the bulk of the Spanish fishery occurred. However, catches were recorded in all the months. -->
+
+<!-- The quarterly catches by division in `r prev_y` are given in Table `r run_reference(id = "tab_catchdiv")`. Most of the catches took place in the second quarter (72%), followed by the third quarter (15%) and with lower catches in first and fourth quarters (12% and 1% respectively). The major fishing activity of the Spanish fleet occurred in the second quarter (79%) followed by the first quarter (13%), whereas the French fleet operated almost exclusively in the third quarter (99%). Regarding fishing areas, most of the Spanish catches in the first semester corresponded to ICES division 8.c East, whereas in the second semester catches occurred in division 8.c West. All the French catches corresponded to ICES divisions 8.a and 8.b. -->
+
+<!-- In previous years, non-negligible catches originate in divisions 7.h and 7.e (statistical rectangles 25E5 and 25E4) have been reallocated to Division 8.a due to their very concentrated location at the boundary between 8.a, 7.h and 7.e in the same period. In `r prev_y` only `r word_spec(" XX ")` tons have been declared in 25E5 and 25E4 and these catches have been reallocated to 8.a. -->
+
+<!-- \newpage -->
+
+<!-- <!-- Tables and figures for section 2.2.2 --> -->
+
+<!-- Table `r run_bookmark("tab_totalcatch", tabruns.start)`: Bay of Biscay anchovy: Annual catches (in tonnes) as estimated by the Working Group members. -->
+
+<!-- ```{r} -->
+<!-- block_section(op_section) # open landscape section -->
+<!-- ``` -->
+
+<!-- Table `r run_bookmark("tab_catchmonth", tabruns)`: Bay of Biscay anchovy: Monthly catches by country (Subarea 8) (without live bait catches). -->
+
+<!-- \newpage -->
+
+<!-- Table `r run_bookmark("tab_catchdiv", tabruns)`: Bay of Biscay anchovy: Catches in the Bay of Biscay by country and divisions in `r prev_y` (without live bait catches). -->
+
+<!-- ```{r} -->
+<!-- block_section(close_section) # end of landscape section  -->
+<!-- ``` -->
+
+<!-- Figure `r run_bookmark("fig_catch", figruns.start)`: Bay of Biscay anchovy: Historical evolution of catches in Subarea 8 by countries. `r ass_y` data are preliminary. -->
+
+<!-- ### Catch numbers-at-age and length -->
+
+<!-- In `r prev_y` there were no length and age samples available from the French fishery due to the low level of catches. Catch numbers-at-age of the French catches were estimated assuming that the percentage of numbers-at-age per quarter were equal to the percentage of numbers-at-age of the Spanish catches in divisions 8.a and 8.b, where the French fishery occurs. -->
+
+<!-- Catch numbers-at-age by quarter in `r prev_y` are given in Table `r run_reference(id = "tab_cage_lastyr")`. Age 1 individuals were predominant in all the quarters, representing between 64% and 86% of the total per quarter. The percentage of individuals of age 2 was between 20% and 27% from quarter 1 to 3 and decreased to 1% in the last quarter. Age 0 individuals appeared in third and fourth quarters, being the 2% and 13% of the total of each quarter respectively. -->
+
+<!-- The age composition of the international catches since 1987, on a half-yearly basis is shown in Table `r run_reference(id = "tab_nage")` and Figure `r run_reference(id = "fig_nage")`. In the first semester most of the catches correspond to ages 1 or 2. In the second semester, age 0 individuals incorporate to the fishery and age 1 increases while older ages (age 2 and 3+) decrease. In 2023, the one-year-old anchovies dominated in the catches in both semesters, representing the 64% in the first semester and the 79% in the second semester. -->
+
+<!-- Regardless interannual variations, strong cohorts can be tracked in the numbers-at-age and the mean age of the catches in the first semester (`r run_reference(id = "fig_bubbles")`). After the fishery closure, there seems to be an increase in the mean age of the catches, towards older individuals. -->
+
+<!-- See the stock annex for methodological issues. -->
+
+<!-- <!-- Tables and figures for section 2.2.3 --> -->
+
+<!-- ```{r} -->
+<!-- block_section(op_section) # open landscape section -->
+<!-- ``` -->
+
+<!-- Table `r run_bookmark("tab_cage_lastyr", tabruns.start)`: Bay of Biscay anchovy: Catch-at-age in thousands for `r prev_y` by country and quarter (without the catches from the live bait tuna fishing boats). -->
+
+<!-- ```{r, eval=F} -->
+<!-- # ft_cagelastyr -->
+<!-- ``` -->
+
+<!-- \newpage -->
+
+<!-- Table `r run_bookmark("tab_nage", tabruns)`: Bay of Biscay anchovy: Catches-at-age of anchovy of the fishery in the Bay of Biscay on half-year basis (including live bait catches up to 1999). Units: Thousands. -->
+
+<!-- ```{r, eval=F} -->
+<!-- # ft_nage -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- block_section(close_section) # end of landscape section  -->
+<!-- ``` -->
+
+<!-- Figure `r run_bookmark("fig_nage", figruns.start)`: Bay of Biscay anchovy: Numbers-at-age by semester in the top and percentage-at-age by semester in the bottom. The age classes are 0, 1, 2 and 3+. -->
+
+<!-- Figure `r run_bookmark("fig_bubbles", figruns.start)`: Bay of Biscay anchovy: Bubble plot of catch-at-age by semester. The red lines represent the mean age in the catches for each of the semesters. -->
+
+<!-- ### Weights and lengths-at-age in the catch -->
+
+<!-- The series of mean weight-at-age in the fishery by half year, from 1987 to `r prev_y`, are shown in Table `r run_reference(id = "tab_wage")` and Figure `r run_reference(id = "fig_wage")`. Since 2010 there is a decreasing trend in the weight-at-age for all age classes in the first semester and for ages 1 and 2 in the second semester. -->
+
+<!-- See the stock annex for methodological issues. -->
+
+<!-- <!-- Tables and figures for section 2.2.4 --> -->
+
+<!-- ```{r} -->
+<!-- block_section(op_section) # open landscape section -->
+<!-- ``` -->
+
+<!-- Table `r run_bookmark("tab_wage", tabruns.start)`: Bay of Biscay anchovy: Mean weight-at-age (grammes) in the international catches on half-year basis. Units: grammes. -->
+
+<!-- ```{r, eval=F} -->
+<!-- # ft_wage -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- block_section(close_section) # end of landscape section  -->
+<!-- ``` -->
+
+<!-- Figure `r run_bookmark("fig_wage", figruns.start)`: Bay of Biscay anchovy: Mean weight-at-age (grammes) in the international catches on half-year basis. Units: grammes. -->
+
+<!-- ### Preliminary fishery data in `r ass_y` -->
+
+<!-- The provisional catches during the first semester of `r ass_y` were 28 071 t, from which 28 055 t corresponded to Spain and 16 t to France. During the first semester, 72% of the catches (in numbers) were age 1 and 28% corresponded to age 2. During the second semester provisional catches until the end of October were 4056 t, from which 3005 t corresponded to Spain and 1051 t to France. As in the most recent years, the total provisional catches in `r ass_y` from France were low (1067 t). -->
+
+<!-- It must be emphasised that `r ass_y` fishery data are preliminary. No age structure was available yet for the French catches in the first half of the year, and they were assumed to have the same age composition as the Spanish catches in that quarter. For the assessment, `r ass_y` November and December catches were assumed to be 2% of the total annual catch which is the average percentage of the catches in November and December in 2010–`r prev_y`, after the re-opening of the fishery. Therefore, the total catch in November and December was estimated at 697 t, resulting in 4753 tonnes for the second semester `r ass_y`. -->
+
+## Fishery independent data
+
+### BIOMAN DEPM survey `r ass_y`
+
+### PELGAS spring acoustic survey `r ass_y`
+
+### Autumn juvenile acoustic survey `r ass_y` (JUVENA `r ass_y`)
+
+## Biological data
+
+### Maturity-at-age
+
+As reported in previous year reports, anchovies are fully mature as soon as they reach their first year of life, in spring the year after the hatch. Therefore, the maturity ogive is as follows:
+
+```{r}
+aux <- data.frame(Age=c(0,1,2,"3+"), Maturity=c(0,1,1,1))
+flextable(aux)
+```
+
+See stock annex - Bay of Biscay Anchovy (Subarea 8) for details.
+
+### Natural mortality
+
+The natural mortality ($y^{-1}$) for Bay of Biscay anchovy is as follows:
+
+```{r}
+aux <- data.frame(Age=c(0,1,2,"3+"), M=c(2.17, 0.8, 1.2, 2.26))
+flextable(aux)
+```
+
+Natural mortality rates for ages 1 and 2 are based on the study by @uriarte_etal_2016. Natural mortality for age 0 was back-calculated from age 1 based on the Gislason model for this stock, while natural mortality for age 3+ was estimated within the assessment model in the last benchmark (WKBANSP) and should be kept unchanged until the next benchmark process.
+
+See stock annex - Bay of Biscay Anchovy (Subarea 8) for further information.
+
+### Weight-at-age in the stock
+
+Weight-at-age in the stock correspond to weight-at-age at spawning time that are taken from the BIOMAN survey for the application of the Daily Egg Production Method.
+
+See stock annex - Bay of Biscay Anchovy (Subarea 8) for further information.
+
+## Stock assessment
+
+### Input data
+
+The input data used for the assessment of the Bay of Biscay anchovy consists of biological parameters, catch-at-age and weight-at-age from the commercial fishery by half year, total biomass and age structured indices from the BIOMAN and PELGAS surveys and a juvenile abundance index from JUVENA (Table `r run_reference(id = "tab_inputSS")` and Figure `r run_reference(id = "fig_inputSS")`).
+
+The historical series of spawning–stock biomass (SSB) from the DEPM and acoustic surveys are shown in Figure `r run_reference("fig_inputssb")`. The trends in biomass from both surveys are similar. From 2003 to 2018, a parallel trend but with larger biomass estimates from the acoustic surveys is apparent, except in 2016 and 2018 that the DEPM biomass estimate was larger than the acoustic biomass. In 2020, the DEPM SSB estimate (around 334 300 t) was the largest of the historical time-series, well above the second highest value (223 200t) observed in 2019. In 2021, the acoustic survey provided the largest SSB estimate of the historical time series (451 660 t) with a much higher value than the DEPM SSB estimate for 2021 (199 490 t). In 2022 and 2023 both surveys showed a decreasing trend in SSB, with a much more pronounced decrease in the acoustic survey. In 2024 and 2025 these two surveys show a discrepancy in trends, with an increasing and then decreasing acoustic biomass estimate and a decreasing and then increasing DEPM biomass estimate with a very similar value for 2025. The largest discrepancy between the SSB estimates from the DEPM and acoustic surveys occurred in 1991, 2000, 2002, 2012, 2015, 2021 and 2023.
+
+The agreement between both surveys is usually higher when estimating the relative age composition of the population. In `r ass_y` the DEPM survey numbers at age proportions were around 0.57, 0.4, and 0.03, for ages 1, 2 and 3+ respectively, and for the acoustics the numbers at age proportions were around 0.67, 0.28, and 0.05 (Figure `r run_reference("fig_inputp")`).
+
+The historical series of the juvenile abundance index from the autumn acoustic survey JUVENA is shown in Figure `r run_reference("fig_inputjuv")`. The `r ass_y` survey index represents a high value, above the average of the temporal series being the second highest estimate of the series in terms of number of individuals.
+
+In 2019 due to the bad weather conditions the JUVENA survey could not cover the region to the north of 46.6ºN and the 2019 and 2020 juvenile abundance indices were considered likely underestimated. This has been confirmed in next years by the BIOMAN 2020 and 2021 and PELGAS 2021 surveys. Besides being among the largest SSB estimates of the BIOMAN and PELGAS surveys time series, the age 1 proportion estimates were above the average indicating large recruitments.
+
+For French catches, due to the low total landing during the last years, length sampling was not available and age structure from Spanish catches in divisions 8.a and 8.b was used for catch-at-age calculations (see Section 2.2.3). Figure `r run_reference("fig_inputcatch")` shows the historical series of total catches by semester. In general, catches in the first semester are larger than in the second semester. The absence of catches from 2005 to 2009 corresponds to various consecutive fishery closures due to the low level of the population. The fishery was reopened in March 2010. In `r ass_y`, the preliminary total catch was around 22 744t in the first half of the year and 7061 t in the second half. The latter was under the assumptions described in Section 2.2.2. Definitive `r ass_y` catch estimates will be provided in WGHANSA `r next_y`. Regarding the age structure of the catches, age 1, 2 and 3+ proportions in the catches in the first semester in `r ass_y` were 0.53, 0.32 and 0.15 respectively, which are below the average proportion in the time-series for age 1 and above for age 2 and 3+ (Figure `r run_reference("fig_inputcage")`).
+
+
+<!-- Tables and figures for "Input data" -->
+
+Table `r run_bookmark("tab_inputSS", tabruns.start)`: Bay of Biscay anchovy: Input data for the stock assessment using Stock Synthesis.
+
+```{r}
+tab_input1 <- set_table_properties(flextable(tab_input1), layout = "autofit")
+tab_input1 <- fontsize(tab_input1, size=7, part = 'all')
+tab_input1
+```
+
+
+```{r}
+model_plot_dir<-"model/ane.27.8_ss3_2025assessment_model/plots"
+include_graphics(file.path(model_plot_dir,"data_plot2.png"))
+```
+Figure `r run_bookmark("fig_inputSS", figruns.start)`: Bay of Biscay anchovy: Summary of input data for SS assessment for Bay of Biscay anchovy, where circle area is relative within a data type. Circles are proportional to total catch for catches; to precision for indices; and to total sample size for age compositions observations.
+
+```{r}
+include_graphics(file.path("report/figs_report","surveys_SSB.png"))
+```
+Figure `r run_bookmark("fig_inputssb", figruns)`: Bay of Biscay anchovy: Historical series of spawning–stock biomass estimates and the corresponding confidence intervals from DEPM (red) and acoustics (blue).
+
+```{r}
+include_graphics(file.path("report/figs_report","bioman_age.png"))
+include_graphics(file.path("report/figs_report","pelgas_age.png"))
+```
+Figure `r run_bookmark("fig_inputp", figruns)`: Bay of Biscay anchovy: Historical series of numbers at age proportion estimates from DEPM (top) and acoustics (bottom).
+
+```{r}
+include_graphics(file.path("report/figs_report","juvena.png"))
+```
+Figure `r run_bookmark("fig_inputjuv", figruns)`: Bay of Biscay anchovy: Historical series of the juvenile abundance index from the autumn acoustic survey JUVENA that is related to recruitment (age 0) in biomass (right) and in numbers (left).
+
+```{r}
+include_graphics(file.path("report/figs_report","catch.png"))
+```
+Figure `r run_bookmark("fig_inputcatch", figruns)`: Bay of Biscay anchovy: Historical series of total catch by semesters. Note that the catch in `r ass_y` is provisional.
+
+```{r}
+include_graphics(file.path("report/figs_report","cage.png"))
+```
+Figure `r run_bookmark("fig_inputcage", figruns)`: Bay of Biscay anchovy: Historical series catch at age proportions. The left panel corresponds to the first semester and the right panel to the second semester. Note that the catch in `r ass_y` is provisional and that the catch at age 0 is not included in the assessment model.
+
+
+
+### Model configuration
+
+The assessment of anchovy in the Bay of Biscay was carried out using Stock Synthesis (SS) [@methot_etal_2013]. This is an age-based analytical assessment with 4 age classes (0-3+) and two seasons. The model configuration is given in Table `r run_reference(id = "tab_inputSS")` and is described in detail in the stock annex - Bay of Biscay Anchovy (Subarea 8).
+
+The model was run under the windows platform with SS version 3.30.22.beta, which was also used during WKBANSP (ICES, 2025). All analysis were performed in R version 4.4.2 (R Core Team, 2025) making use of SS related packages r4ss [@taylor_etal_2021] and ss3diags @winker_etal_2024.
+
+<!-- Tables and figures for "Model configuration" -->
+
+Table `r run_bookmark("tab_configSS", tabruns.start)`: Bay of Biscay anchovy: Stock assessment model configuration in Stock Synthesis.
+`r word_spec("insert by hand")`
+
+### State of the stock
+
+Estimated parameters from the final assessment, derived quantities and the corresponding standard deviations are reported in Table `r run_reference(id = "tab_paramSS")` and Table `r run_reference(id = "tab_summaryICES")`. Estimates by age, such as numbers at the beginning of the year and fishing mortalities are reported in Table `r run_reference(id = "tab_natage")` and Table `r run_reference(id = "tab_fatage")`.
+
+Recruitment (age 0 in numbers at the beginning of the second semester), SSB (at spawning time which is assumed to be 15th May), fishing mortality by semester and harvest rates (catch/biomass) from the final assessment are shown in Figure `r run_reference("fig_summaryICES")`. The estimated level of SSB in `r ass_y` is approximately 119 768t, which is above the mean of the time-series, and the 95% probability interval is around 58 798t and 180 738t. This confidence interval is among the widest in the time-series, accounting for the discrepancies observed in the surveys of the last years. The estimated recruitment (age 0) in `r ass_y` is around 31 134 900 thousand and the 95% probability interval is between 10 464 174	and	92 638. The confidence interval around the mean recruitment in `r ass_y` is wide because only the JUVENA `r ass_y` survey provides direct information about that recruitment level. This recruitment estimate is the third highest estimate in the time series. The annual fishing mortality (apical F) has shown no to be relatively stable, around the value of 0.2, during the last decade. The fishing morality is higher in the first semester, with an estimated value of 0.34 in the first semester of `r ass_y` and 0.2 in the second semester of `r ass_y`. The harvest rate, computed as catch/SSB, is estimated at 0.5 for `r ass_y` similar to most recent values in the time series.
+
+Estimated selectivities through a random walk for ages 1 and 3+ in the commercial fishery show an increasing trend for ages 1 and 3+ in the most recent years, mainly in the first semester, when most of the catches take place (Figure `r run_reference("fig_selfleet")`). Selectivities for surveys are constant in time, only being estimated the selectivity at age 1 for the acoustic survey, with an estimated value of 0.73 for the time block previous to 2007 and a selectivity of 1 for the time block since 2007 until now (Figure `r run_reference("fig_selsurv")`). These two time blocks account for the incorporation of commercial vessels to the spring acoustic survey.
+
+The fitted Ricker stock-recruitment model is shown in Figure `r run_reference("fig_sr")`. The steepness parameter was fixed at 1.4 (estimated in the benchmark process)  while R0 was estimated within the SS assessment model with a constant bias correction applied.
+
+
+
+<!-- Tables and figures for "State of the stock" -->
+
+Table `r run_bookmark("tab_paramSS", tabruns.start)`: Bay of Biscay anchovy: Estimated parameters (excluding deviation parameters), minimum and maximum values, initial values, status and standard deviations as reported by SS output for Bay of Biscay anchovy final model configuration.
+```{r}
+tab_params <- set_table_properties(flextable(tab_params), layout = "autofit")
+tab_params <- fontsize(tab_params, size=7, part = 'all')
+tab_params
+```
+
+
+Table `r run_bookmark("tab_summaryICES", tabruns)`: Bay of Biscay anchovy: Summary of the stock assessment. Summary table of the WGHANSA `r ass_y` assessment. Lower and upper values of the 95% confidence intervals are presented for SSB, Recruitment and Apical F (maximum F-at-age by year); biomass and landings in tonnes, recruits in thousands of individuals, F in year-1. Catches for `r ass_y` are an assumption. HR stands for harvest rate (Landings/SSB)
+```{r}
+tab_deriv_quants <- set_table_properties(flextable(tab_deriv_quants), layout = "autofit")
+tab_deriv_quants <- fontsize(tab_deriv_quants, size=6, part = 'all')
+tab_deriv_quants
+```
+
+
+Table `r run_bookmark("tab_fatage", tabruns)`: Bay of Biscay anchovy: Fishing mortality-at-age by semester (_s1 for semester 1 and _s2 for semester 2) estimated in the assessment. F apical is F (age2)
+```{r}
+tab_fage <- set_table_properties(flextable(tab_fage), layout = "autofit")
+tab_fage <- fontsize(tab_fage, size=7, part = 'all')
+tab_fage
+```
+
+
+Table `r run_bookmark("tab_natage", tabruns)`: Bay of Biscay anchovy: Numbers-at-age estimated in the assessment at the beginning of the year.
+```{r}
+tab_nage <- set_table_properties(flextable(tab_nage), layout = "autofit")
+tab_nage <- fontsize(tab_nage, size=7, part = 'all')
+tab_nage
+```
+
+
+```{r}
+include_graphics(file.path("report/figs_report","ts11_Age-0_recruits_(1000s)_with_95_asymptotic_intervals.png"))
+include_graphics(file.path("report/figs_report","ts7_Spawning_output_with_95_intervals.png"))
+include_graphics(file.path("report/figs_report","ts_summaryF.png"))
+include_graphics(file.path("report/figs_report","F1F2.png"))
+include_graphics(file.path("report/figs_report","HR.png"))
+```
+Figure `r run_bookmark("fig_summaryICES", figruns.start)`: Bay of Biscay anchovy: Time series, R, SSB, annual apical F, apical F by semester and harvest rate. F apical is F (age2).
+
+
+```{r}
+include_graphics(file.path("report/figs_report","sel_fishery.png"))
+```
+Figure `r run_bookmark("fig_selfleet", figruns)`: Bay of Biscay anchovy: Estimated selectivities for commercial fleets.
+
+
+```{r}
+include_graphics(file.path("report/figs_report","sel_surv.png"))
+```
+Figure `r run_bookmark("fig_selsurv", figruns)`: Bay of Biscay anchovy: Estimated selectivities for Acoustic and DEPM surveys.
+
+
+```{r}
+include_graphics(file.path("report/figs_report","SR_curve2.png"))
+```
+Figure `r run_bookmark("fig_sr", figruns)`: Bay of Biscay anchovy: fitted SR model within the assessment model.
+
+
+### Model diagnostics
+
+The model was run with the latest SS version with a final gradient on the likelihood lower than 0.0001. No parameters are estimated at the bounds, no highly correlated parameters were detected and the Hessian was positive definite. In 2025 assessment initial values for parameter estimation were provided, using estimated values from the previous year assessment. The use of these initial values were found to be necessary for model convergence this year.
+
+Figure `r run_reference("fig_surveyfits")` shows the fits to the aggregated indices from the three surveys and Figure `r run_reference("fig_runs_test")` the corresponding residuals. The Juvena and Pelgas aggregated indices passed the runs test for residuals, indicating no evidence to reject the hypothesis of randomly distributed residuals, however, a pattern on the DEPM survey residuals can be observed, with negative residual from 1995 to 2013 and positive residuals from 2013 on which did not passed the test. The RMSE value for these indices is higher than 30% (Figure `r run_reference("fig_RMSE")`) which may indicate data conflicts (@CARVALHO2021).
+
+The model showed a general good fit to age composition data with no large Pearson residuals or strong patterns (Figure `r run_reference("fig_ageresiduals")`). Residuals for mean age passed the run test for the commercial fleets, indicating no evidence to reject the hypothesis of randomly distributed residuals while the BIOMAN DEPM and for the PELGAS spring acoustic surveys did not pass the test (Figure `r run_reference("fig_runs_test")`). The joint age composition residual plot (Figure `r run_reference("fig_RMSE")`) and the root mean square error (RMSE) of 6.4% indicated a good fit to the data.
+
+
+<!-- Tables and figures for "Model diagnostics" -->
+
+```{r}
+include_graphics(file.path("report/figs_report","index2_cpuefit_Bioman_survey.png"))
+include_graphics(file.path("report/figs_report","index2_cpuefit_Pelgas_survey.png"))
+include_graphics(file.path("report/figs_report","index2_cpuefit_Juvena_survey.png"))
+```
+Figure `r run_bookmark("fig_surveyfits", figruns.start)`: Bay of Biscay anchovy: Fit (blue line) to index data for surveys. Vertical lines indicate 95% uncertainty interval around index values based on the model assumption of lognormal error. Thicker lines (if present) indicate input uncertainty before addition of estimated additional uncertainty parameter.
+
+
+```{r}
+include_graphics(file.path("report/figs_report","runs_test.png"))
+```
+Figure `r run_bookmark("fig_runs_test", figruns)`: Bay of Biscay anchovy: Mean age and aggregated indices residuals for each fleet. Green shading indicates that the residual test is passes, red indicates the test is not passed.
+
+
+```{r}
+include_graphics(file.path("report/figs_report","comp_agefit__multi-fleet_comparison.png"))
+```
+Figure `r run_bookmark("fig_ageresiduals", figruns)`: Bay of Biscay anchovy: Pearson residuals. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).
+
+
+```{r}
+include_graphics(file.path("report/figs_report","RMSE.png"))
+```
+Figure `r run_bookmark("fig_RMSE", figruns)`: Bay of Biscay anchovy: Joint residuals for all fleets and RMSE values. Age composition residuals on the right and aggregated indices residuals on the left.
+
+
+### Retrospective pattern
+
+The retrospective analysis for the final model was performed for a five-years period (Figure 2.38). Retrospective bias was measured in terms of the Mohn's rho (Mohn, 1999) using the function SSmohnsrho() in the R package r4ss.
+
+Mohn's rho indicate an overestimation of SSB (Mohn's rho=0.45) and underestimation of recruitment and F (Mohn's rho -0.22 and -0.18 respectively). The Mohn’s rho for SSB is above the critical value for short-lived species (0.3). As analysed during the benchmark (WKBANSP), the retrospective patterns have deteriorated in time and it should be further monitored and analysed.
+
+<!-- Tables and figures for "Rstrospective pattern" -->
+
+```{r}
+include_graphics(file.path("report/figs_report","retros.png"))
+```
+Figure `r run_bookmark("fig_retros", figruns.start)`: Bay of Biscay anchovy: Retrospective patterns for SSB, recruitment and F with their corresponding Mohns rho values. Grey shaded area in the SSB plot represents the 95% confidence interval for the reference run.
+
+
+<!-- ### Comparison with previous year's assessment --> -->
+
+<!-- Provisional data, bla bla. This year change in assessment -->
+
+<!-- ¿?¿? -->
+
+<!-- Compare SS and CBB; (refer to WKBANSP) -->
+
+<!-- Tables and figures for "Comparion wrt last year" -->
+
+## Short-term forecast
+
+SS includes a forecast module that enables projections for a specified number of years, linked to the model ending conditions, associated uncertainties, and a specified level of fishing intensity. This tool was used to perform the short-term projections, following assumptions and settings agreed during the November WGHANSA meeting and described in the Stock Annex. Recruitment at the beginning of the second semester of `r ass_y` is estimated within the SS assessment model and is mainly informed by the latest JUVENA juvenile abundance index and the parameters of the JUVENA observation equations. Average last 3 years previous to the assessment year (`r ass_y-3`-`r ass_y-1`) of selectivity, proportion of fishing mortality in the first semester and weight-at-age are assumed for the projection year (`r next_y`) and fishing mortality level (F at age 2) of the terminal year is assumed to be F status quo. Natural mortality and maturity-at-age are time invariant and are assumed to be the same as in the assessment model. Forecast assumptions for the current projection are shown in `r run_reference(id = "tab_inputSTF")`.
+
+Short-term forecast results including catch in `r next_y` and SSB in mid-May `r next_y` are predicted for the various levels of fishing mortality in `r next_y` Table `r run_reference(id = "tab_outputSTF")` shows the management options table from the stochastic short-term forecasts at fishing mortality levels used for the different catch scenario options in the advice. In addition to the advice based on the harvest control rule in the management plan, the management options table include forecasts of SSB with no catch in `r next_y`, catch at current fishing mortality, half of this fishing mortality, maximum value of F that will result in SSB ≥ Blim, or SSB ≥ Bpa, with a 95% probability and catches at the F level that produces SSB=Blim and SSB=Bpa.
+
+In order obtain these catch options, several levels of fishing mortality were used to run the SS forecast module and get SSB and catch estimates in `r next_y`. F multipliers for the current F level were defined from 0 to 20 and then linear interpolation was used to reach the defined management options. Figure `r run_reference("fig_stf_F_SSB")` shows the resulting SSB and the corresponding 90% confidence intervals for all fishing mortality levels used for projections.
+
+The forecasts are stochastic, allowing for estimates of uncertainty in SSB. Consequently, the probability of SSB falling below Blim in `r next_y` is also estimated. This probability relates to the short-term probability of SSB < Blim and is not comparable to the long-term probability of SSB < Blim tested in simulations when estimating biological reference points.
+
+
+<!-- Tables and figures for "STF" -->
+
+Table `r run_bookmark("tab_inputSTF", tabruns2.start)`: Bay of Biscay anchovy: Forecast assumption.
+`r word_spec("insert by hand")`
+
+Table `r run_bookmark("tab_outputSTF", tabruns2)`: Bay of Biscay anchovy: Annual catch scenarios. All weights are in tonnes.
+`r word_spec("insert by hand")`
+
+```{r}
+include_graphics(file.path("report/figs_report","stf_F_SSB_90.png"))
+```
+Figure `r run_bookmark("fig_stf_F_SSB", figruns2.start)`: Bay of Biscay anchovy: Short-term projections for SSB in terms of fishing mortality levels in `r next_y`, the shaded grey area represents the 90% confidence interval estimated by the SS forecast model.
+
+
+**Evidence for change in the advice**
+
+A comparison of the input data used in the forecast from the current and previous assessments is provided in this section. In Figures `r run_reference("fig_change_in_stf_biomass")` and `r run_reference("fig_change_in_stf_ss3")` estimated time series for biomass at the beginning of the year, SSB, recruitment and fishing mortality for previous and current assessments are shown. Forecast assumptions from previous and current advice sheets are shown in Table `r run_reference(id = "tab_change_stf")`.
+
+
+The advice for `r next_y` is higher than the advice for `r ass_y` because the biomass at the beginning of the year `r next_y` is projected to be higher than last year (Figure `r run_reference("fig_change_in_stf_biomass")`) as a result of the high `r ass_y` recruitment as shown in Figure `r run_reference("fig_change_in_stf_ss3")`, where the recruitment last year was one of the lowest values after the reopening of the fishery (that has been revised upwards in the latest assessment) while this year the recruitment is above the historical mean. The `r next_y` SSB is projected to be above the upper trigger in the management plan, resulting in the maximum allowable catch under the management plan harvest control rule.
+
+<!-- Tables and figures for "Evidence change in advice" -->
+
+```{r}
+include_graphics(file.path("report/figs_report","change_in_stf_biomass.png"))
+```
+Figure `r run_bookmark("fig_change_in_stf_biomass", figruns2)`: Bay of Biscay anchovy: Estimated and projected biomass at the beginning of the year for previous (`r prev_y`) and current (`r ass_y`) assessments.
+
+
+```{r}
+include_graphics(file.path("report/figs_report","change_in_stf_ss3.png"))
+```
+Figure `r run_bookmark("fig_change_in_stf_ss3", figruns2)`: Bay of Biscay anchovy: Estimated and projected SSB, recruitment and fishing mortality for previous (ass.yr-1 = `r prev_y`) and current (ass.yr =`r ass_y`) assessments. Lines represent point estimates and shaded areas represent the 95% confidence intervals for the SS model.
+
+
+Table `r run_bookmark("tab_change_stf", tabruns2)`: Bay of Biscay anchovy: Forecast assumptions from previous and current advice sheets.
+`r word_spec("insert by hand")`
+
+
+## Reference points
+
+The reference points and their definitions are found in the stock annex for this stock, which were approved in November 2024.
+
+Bay of Biscay anchovy is a short-lived species classified in category 1. According to the guide-lines, the classification of status of stock for short-lived species should be based directly on the distribution of SSB at spawning time relative to Blim. Blim is set at 26 600 tonnes and Bpa, a deterministic biomass limit below which a stock is considered to have reduced reproductive capacity, was set at 43 600 (Table `r run_reference(id = "tab_refpts")`).  Alternatively, F precautionary approach (PA) reference points don’t need to be defined, since ICES does not use F reference points to determine exploitation status for short-lived species.
+
+ICES MSY approach for short-lived stocks is aimed at achieving a target escapement (MSY Bescapement, the amount of biomass left to spawn), which is more robust against low SSB and recruitment failure than a fishing mortality approach. In addition, fishing mortality is not allowed to be higher than Fcap, a limit fishing mortality that constraints the exploitation rate when biomass is high. This applies to the Bay of Biscay anchovy. Hence, defining an FMSY is irrelevant, and advice aiming at MSY is equivalent to the precautionary approach advice. ICES advice for this stock is based on a management plan and MSY Bescapement and Fcap have not been defined for this stock.
+
+<!-- Tables and figures for "Reference points" -->
+
+Table `r run_bookmark("tab_refpts", tabruns2.start)`: Bay of Biscay anchovy: Summary table of reference points.
+`r word_spec("insert by hand")`
+
+## Management considerations
+
+A draft management plan was proposed by the EC in 2009 in cooperation between science (STECF) and stakeholders (Southwestern Waters AC). This plan was not formally adopted by the EU, but it was used from 2010 to 2014 for establishing the TAC for the period between 1st July and 30th June next year.
+
+In February 2013, the Bay of Biscay anchovy stock was benchmarked in the Benchmark Workshop on Pelagic Stocks (WKPELA). The new stock annex for this stock was approved in October 2013 after further discussions held during WGHANSA 2013 and afterwards by correspondence.
+
+Given that the 2009 long-term management plan proposal for the stock was based on the methods described in the previous stock annex (approved by WKSHORT 2009), STECF was requested to assess the harvest control rule and possible alternatives scoped with the stakeholders, and provide advice taking into account the long-term biological and economic objectives established in the plan. The STECF expert group met from 14 to 18 October 2013 and concluded that the change in the assessment methodology did not affect the usefulness of the LTMP proposal and that the HCR remained within the precautionary limits of risk.
+
+In addition, the STECF expert group advised on a possible revision of the HCR (including changes regarding the HCR and the management calendar) and set the basis for conducting an impact assessment for the Bay of Biscay anchovy long-term management regulation (STECF, 2013).
+
+The data analysis for support of the impact assessment for the management plan of Bay of Biscay anchovy was carried out by an STECF expert group that met from 10 to 14 March 2014 (STECF, 2014). A range of alternative HCR formulations were tested and they were considered to provide a sound base for developing options for fisheries management. In particular, for all the HCRs tested, the STECF noted that changing the management period to January–December reduced the risks of the stock falling below Blim, and leaded to a small increase in quantity and stability of catches compared with the management period July–June.
+
+During the two expert group meetings, the STECF concluded that the HCR in the 2009 LTMP proposal remained appropriate as a basis for advising on TACs. Therefore, in July 2014, the TAC from July 2014 to June 2015 was set according to this draft plan.
+
+In the second semester of 2014, managers and stakeholders agreed on adopting the HCR named G4 in the STECF report with a harvest rate of 0.45 (Figure `r run_reference("fig_HCRcompare")`). According to this rule, the TAC for the management period from January to December is set as:
+
+$$
+    TAC_{Jan_{y}-Dec_{y}}=\left\{
+                \begin{array}{cl}
+                  0 & if \widehat{SSB}_{y} \le 24 000 \\
+                  -3800 + 0.45 \widehat{SSB}_{y} & if 24 000 < \widehat{SSB}_{y} \le 64 000\\
+                  25 000 & if \widehat{SSB}_{y} > 64 000
+                \end{array}
+              \right.
+$$
+
+where $\widehat{SSB}_{y}$ is the expected spawning–stock biomass in year $y$. In this rule, the TAC from January to December is based on the spawning biomass that will occur during the management year, which at the same time depends on the catches taken during the first semester of the management year. So, both parameters (catches and SSB) are interdependent and vary together. This leads to seek the value of fishing mortality during the first semester solving the system for the median values of incoming recruitment, biomass at-age 2+ at the beginning of the year, the growth rates at-age 1 and 2+ and the selectivity at-age 1 in the first semester. The % of annual catches taken in the first semester is assumed to be 0.6 according to STECF (2013; 2014).
+
+Subsequently, the European Commission requested ICES to provide advice in December 2014 based on this new HCR, which was used to set a new TAC from January to December 2015. In 2015, ICES reviewed the selected harvest control rule and concluded that it was precautionary (Annex 5 in ICES, 2015a). Subsequently, ICES advice for year 2016 was again provided in accordance with this HCR. In May 2016, the SWWAC recommended to modify the management framework (SWW Opinion 101). Based on the good state of the stock, they asked to use the harvest control rule G3 with a rate of exploitation of 0.4 (Figure `r run_reference("fig_HCRcompare")`), which sets the TAC for the management period from January to December as:
+
+$$
+    TAC_{Jan_{y}-Dec_{y}}=\left\{
+                \begin{array}{cl}
+                  0 & if \widehat{SSB}_{y} \le 24 000 \\
+                  -2600 + 0.4 \widehat{SSB}_{y} & if 24 000 < \widehat{SSB}_{y} \le 89 000\\
+                  33 000 & if \widehat{SSB}_{y} > 89 000 \, .
+                \end{array}
+              \right.
+$$
+
+This rule complies with the probability of risk of 5% as evaluated by STECF (2014) and has been assessed to conform to the ICES criteria for management plans (ICES, 2016, Annex 9). The SWWAC recommended an immediate application of this HCR and in June 2016 the European Commission increased the fishing opportunities for 2016 from 25 000 to 33 000 tonnes. The European Commission requested that this rule was used as the basis of the ICES advice from 2017 onwards.
+
+Given that this stock was benchmarked in September 2024 and the stock assessment model was changed, a full analysis to study the performance of the management plan conditioned on the new population dynamics and including the new stock assessment and short-term forecast in the management procedure is being conducted. These work to reevaluate the management plan will be finalised during 2026.
+
+The methodological changes proposed during the benchmark workshop do not imply big changes in the historical perception of the stock (see the comparison of estimated SSB with the new SS model and the previous CBBM model based on the same data until 2023, Figure `r run_reference("fig_SS_CBBM_2023")` ). Therefore, until a proper management strategy evaluation is conducted, the current management plan seems to be potentially applicable to set initial catch options for 2026.
+
+<!-- Tables and figures for "Management considerations" -->
+
+```{r}
+include_graphics('report/figs_report/HCR_compare.jpg')
+```
+Figure `r run_bookmark("fig_HCRcompare", figruns2.start)`: Bay of Biscay anchovy: Harvest control rules G4 with harvest rate of 0.45 (in red) and G3 with harvest rate of 0.4 (in blue) according to which the TAC from January to December is set as a function of the expected spawning–stock biomass (on 15th May) in the management year.
+
+
+```{r}
+include_graphics('report/figs_report/SSB_SS_CBBM_2023.png')
+```
+Figure `r run_bookmark("fig_SS_CBBM_2023", figruns2)`: Bay of Biscay anchovy: Estimated SSB by the CBBM model in the last WGHANSA 2023 (red) and by the final SS model (blue). Points are medians for the CBBM and means for the SS model. Shaded areas represent the 90% probability interval for the CBBM and the 90% confidence interval for the SS model.
+
+## References

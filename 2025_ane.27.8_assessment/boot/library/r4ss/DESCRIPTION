@@ -1,0 +1,98 @@
+Type: Package
+Package: r4ss
+Title: R Code for Stock Synthesis
+Version: 1.51.0
+Authors@R: c( person("Ian G.", "Taylor", , "Ian.Taylor@noaa.gov", role = c("aut",
+          "cre")), person("Ian J.", "Stewart", role = "aut"), person("Allan C.", "Hicks",
+          role = "aut"), person("Tommy M.", "Garrison", role = "aut"), person("Andre E.",
+          "Punt", role = "aut"), person("R.I.C. Chris", "Francis", role = "aut"),
+          person("John R.", "Wallace", role = "aut"), person("Chantel R.", "Wetzel", role
+          = "aut"), person("James T.", "Thorson", role = "aut"), person("Yukio",
+          "Takeuchi", role = "aut"), person("Kotaro", "Ono", role = "aut"), person("Cole
+          C.", "Monnahan", role = "aut"), person("Christine C.", "Stawitz", role =
+          "aut"), person("Z. Teresa", "A'mar", role = "aut"), person("Athol R.",
+          "Whitten", role = "aut"), person("Kelli F.", "Johnson", role = "aut"),
+          person("Robbie L.", "Emmet", role = "aut"), person("Sean C.", "Anderson", role
+          = "aut"), person("Gwladys I.", "Lambert", role = "aut"), person("Megan M.",
+          "Stachura", role = "aut"), person("Andrew B.", "Cooper", role = "aut"),
+          person("Andi", "Stephens", role = "aut"), person("Neil L.", "Klaer", role =
+          "aut"), person("Carey R.", "McGilliard", role = "aut"), person("Iago",
+          "Mosqueira", role = "aut"), person("Watal M.", "Iwasaki", role = "aut"),
+          person("Kathryn L.", "Doering", role = "aut"), person("Andrea M.", "Havron",
+          role = "aut"), person("Nathan R.", "Vaughan", role = "aut"), person("LaTreese
+          S.", "Denson", role = "aut"), person("Ashleigh J.", "Novak", role = "aut"),
+          person("Henning", "Winker", role = "aut"), person("Lee", "Qi", role = "aut"),
+          person("Megumi", "Oshima", role = "aut"), person("Eric", "Fletcher", role =
+          "aut"), person("Elizabeth F.", "Gugliotti", role = "aut"), person("Kiva L.",
+          "Oken", role = "aut") )
+Description: A collection of R functions for use with Stock Synthesis, a fisheries stock
+          assessment modeling platform written in ADMB by Dr. Richard D. Methot at the
+          NOAA Northwest Fisheries Science Center. The functions include tools for
+          summarizing and plotting results, manipulating files, visualizing model
+          parameterizations, and various other common stock assessment tasks.  This
+          version of '{r4ss}' is compatible with Stock Synthesis versions 3.24 through
+          3.30 (specifically version 3.30.23.1, from December 2024). Support for 3.24
+          models is only through the core functions for reading output and plotting.
+License: GPL-3
+URL: https://github.com/r4ss/r4ss, https://r4ss.github.io/r4ss/
+BugReports: https://github.com/r4ss/r4ss/issues
+Depends: R (>= 4.1.0)
+Imports: coda, corpcor, dplyr, forcats, furrr, future, ggplot2, gh,
+        kableExtra, lifecycle, purrr, stringr, tidyr, viridis
+Suggests: flextable, ggpubr, gplots, gtools, knitr, maps, parallelly,
+        pso, reshape2, rmarkdown, shiny, testthat, truncnorm
+VignetteBuilder: knitr
+Encoding: UTF-8
+Language: en-US
+LazyLoad: yes
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: r4ss
+RemoteUsername: r4ss
+RemoteRef: a780061
+RemoteSha: a780061d8701121c0ac7ed0500fbd60782b923c1
+GithubRepo: r4ss
+GithubUsername: r4ss
+GithubRef: a780061
+GithubSHA1: a780061d8701121c0ac7ed0500fbd60782b923c1
+Author: Ian G. Taylor [aut, cre],
+  Ian J. Stewart [aut],
+  Allan C. Hicks [aut],
+  Tommy M. Garrison [aut],
+  Andre E. Punt [aut],
+  R.I.C. Chris Francis [aut],
+  John R. Wallace [aut],
+  Chantel R. Wetzel [aut],
+  James T. Thorson [aut],
+  Yukio Takeuchi [aut],
+  Kotaro Ono [aut],
+  Cole C. Monnahan [aut],
+  Christine C. Stawitz [aut],
+  Z. Teresa A'mar [aut],
+  Athol R. Whitten [aut],
+  Kelli F. Johnson [aut],
+  Robbie L. Emmet [aut],
+  Sean C. Anderson [aut],
+  Gwladys I. Lambert [aut],
+  Megan M. Stachura [aut],
+  Andrew B. Cooper [aut],
+  Andi Stephens [aut],
+  Neil L. Klaer [aut],
+  Carey R. McGilliard [aut],
+  Iago Mosqueira [aut],
+  Watal M. Iwasaki [aut],
+  Kathryn L. Doering [aut],
+  Andrea M. Havron [aut],
+  Nathan R. Vaughan [aut],
+  LaTreese S. Denson [aut],
+  Ashleigh J. Novak [aut],
+  Henning Winker [aut],
+  Lee Qi [aut],
+  Megumi Oshima [aut],
+  Eric Fletcher [aut],
+  Elizabeth F. Gugliotti [aut],
+  Kiva L. Oken [aut]
+Maintainer: Ian G. Taylor <Ian.Taylor@noaa.gov>
+Built: R 4.4.2; ; 2025-11-22 09:49:38 UTC; windows

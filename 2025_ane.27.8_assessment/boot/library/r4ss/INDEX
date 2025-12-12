@@ -1,0 +1,196 @@
+DoProjectPlots          Deprecated function to make plots from Andre
+                        Punt's Rebuilder program.
+NegLogInt_Fn            Perform SS implementation of Laplace
+                        Approximation
+PinerPlot               Make plot of likelihood contributions by fleet
+SSMethod.Cond.TA1.8     Apply Francis composition weighting method
+                        TA1.8 for conditional age-at-length fits
+SSMethod.TA1.8          Apply Francis composition weighting method
+                        TA1.8
+SS_ForeCatch            Create table of fixed forecast catches
+SS_RunJitter            Deprecated function to run jitters, renamed to
+                        jitter()
+SS_Sensi_plot           Create relative sensitivity plots as described
+                        in Cope and Gertseva (2020)
+SS_changepars           Change parameters, bounds, or phases in the
+                        control file.
+SS_decision_table_stuff
+                        Extract total catch, spawning output, and
+                        fraction unfished from forecast years
+SS_doRetro              Deprecated function to run a retrospective
+                        analyses, renamed to retro()
+SS_fitbiasramp          Estimate bias adjustment for recruitment
+                        deviates
+SS_html                 Create HTML files to view figures in browser.
+SS_makeHTMLdiagnostictable
+                        Make html diagnostic tables
+SS_output               A function to create a list object for the
+                        output from Stock Synthesis
+SS_parlines             Get parameter lines from Stock Synthesis
+                        control file
+SS_plots                plot many quantities related to output from
+                        Stock Synthesis
+SS_profile              Deprecated function to run a likelihood
+                        profile, renamed to profile().
+SS_read                 Read all Stock Synthesis input files for a
+                        model
+SS_read_summary         read ss_summary file
+SS_readctl              Read control file from SS
+SS_readctl_3.24         Deprecated: read control file from SS version
+                        3.24
+SS_readctl_3.30         read control file from SS version 3.30
+SS_readdat              read Stock Synthesis data file
+SS_readdat_2.00         Deprecated: read data file from SS version 2.00
+SS_readdat_3.00         Deprecate: read data file from SS version 3.00
+SS_readdat_3.24         Deprecated: read data file from SS version 3.24
+SS_readdat_3.30         read data file from SS version 3.30
+SS_readforecast         read forecast file
+SS_readpar_3.24         Deprecated: read ss.par file from SS version
+                        3.24
+SS_readpar_3.30         read .par file from SS version 3.30
+SS_readstarter          Read Stock Synthesis starter file as a list
+SS_readwtatage          Read in a weight-at-age data file as a data
+                        frame
+SS_recdevs              Insert a vector of recruitment deviations into
+                        the control file.
+SS_tune_comps           Deprecated function to tune composition data,
+                        renamed to tune_comps()
+SS_varadjust            Modify variance and sample size adjustments in
+                        the control file
+SS_write                Write all Stock Synthesis input files for a
+                        model
+SS_writectl             Write Stock Synthesis control file
+SS_writectl_3.24        Deprecated: write 3.24 control file
+SS_writectl_3.30        write control file for SS3 version 3.30
+SS_writedat             write Stock Synthesis data file
+SS_writedat_3.24        Deprecated: write data file for SS version 3.24
+SS_writedat_3.30        write data file for SS version 3.30
+SS_writeforecast        write forecast file
+SS_writepar_3.24        Deprecated: write ss.par file from SS version
+                        3.24
+SS_writepar_3.30        write .par file from SS version 3.30
+SS_writestarter         write starter file
+SS_writewtatage         Write weight-at-age file
+SSbiologytables         A function to create a table of biology for
+                        assessment reporting: length, weight, % mature,
+                        fecundity, and selectivity
+SSdiagsTime2Year        Convert Time-Steps
+SSexecutivesummary      Create executive summary tables from an SS3
+                        Report.sso file
+SSgetMCMC               Read MCMC output.
+SSgetoutput             Get output from multiple Stock Synthesis
+                        models.
+SSmakeMmatrix           Convert a matrix of natural mortality values
+                        into inputs for Stock Synthesis
+SSmohnsrho              Calculate Mohn's rho values for select
+                        quantities
+SSplotAgeMatrix         Plot matrix of either length or observed age at
+                        true age
+SSplotBiology           Plot biology related quantities.
+SSplotCatch             Plot catch related quantities.
+SSplotCohortCatch       Plot cumulative catch by cohort.
+SSplotComparisons       plot model comparisons
+SSplotComps             Plot composition data and fits.
+SSplotData              Timeline of presence/absence of data by type,
+                        year, and fleet.
+SSplotDiscard           Plot fit to discard fraction.
+SSplotDynamicB0         Plot Dynamic B0
+SSplotIndices           Plot indices of abundance and associated
+                        quantities.
+SSplotMCMC_ExtraSelex   Plot uncertainty around chosen selectivity
+                        ogive from MCMC.
+SSplotMnwt              Plot mean weight data and fits.
+SSplotMovementMap       Show movement rates on a map.
+SSplotMovementRates     Plot movement rates from model output
+SSplotNumbers           Plot numbers-at-age related data and fits.
+SSplotPars              Plot distributions of priors, posteriors, and
+                        estimates.
+SSplotProfile           Plot likelihood profile results
+SSplotRecdevs           Plot recruitment deviations
+SSplotRecdist           Plot of recruitment distribution among areas
+                        and seasons
+SSplotRetroRecruits     Make squid plot of retrospectives of
+                        recruitment deviations.
+SSplotSPR               Plot Spawning Potential Ratio (SPR) quantities.
+SSplotSelex             Plot selectivity
+SSplotSexRatio          Plot sex-ratio data and fits for two sex models
+SSplotSpawnrecruit      Plot spawner-recruit curve.
+SSplotSummaryF          Plot the summary F (or harvest rate).
+SSplotTags              Plot tagging data and fits
+SSplotTimeseries        Plot timeseries data
+SSplotYield             Plot yield and surplus production.
+SSsummarize             Summarize the output from multiple Stock
+                        Synthesis models.
+SStableComparisons      make table comparing quantities across models
+SSunavailableSpawningOutput
+                        Plot unavailable spawning output
+TSCplot                 Create a plot for the TSC report
+add_file_header         Add header comments to the input files
+add_legend              Add legend to plots
+bubble3                 Create a bubble plot.
+calc_var_adjust         Calculate variance adjustments for discard or
+                        mean body weight data
+check_exe               Find location of executable within path or
+                        specified directory
+check_inputlist         Check input argument 'inputlist'
+copy_SS_inputs          Copy a the Stock Synthesis input files from one
+                        directory to another
+download_models         Download SS3 test models
+file_increment          Rename key Stock Synthesis output files by
+                        adding integer value
+getADMBHessian          Read admodel.hes file
+get_SIS_info            Gather information for the NOAA Species
+                        Information System (SIS)
+get_areacols            Get default vector of colors for each area
+get_comments            Collect comments lines starting from "#C" in
+                        datfile, ctlfile, starter.ss, forecast.ss etc
+get_dat_new_name        Get the name of the data .ss_new file in a
+                        directory
+get_last_phase          Get the highest phase used in the control file
+get_par_name            Get the name of the .par file in a directory
+get_ss3_exe             Download the Stock Synthesis (SS3) executable
+get_tuning_table        Get the tuning table
+get_tv_parlabs          Get time varying parameter labels
+is.wholenumber          Utility function to test if x is "numerically"
+                        integer wrt machine epsilon taken from example
+                        section of help of is.integer
+iterate_jitter          Execute a single jittered model run
+jitter                  Iteratively run Stock Synthesis with jittered
+                        starting values
+make_multifig           Create multi-figure plots.
+make_multifig_sexratio
+                        Create multi-figure sex ratio plots.
+mcmc.nuisance           Summarize nuisance MCMC output
+mcmc.out                Summarize, analyze and plot key MCMC output.
+mountains               Make shaded polygons with a mountain-like
+                        appearance
+plotCI                  Plot points with confidence intervals.
+populate_multiple_folders
+                        Populate multiple Stock Synthesis folders with
+                        input files
+profile                 Run a likelihood profile in Stock Synthesis.
+read.admbFit            Read ADMB .par and .cor files.
+retro                   Run a retrospective analyses
+rich.colors.short       Make a vector of colors.
+run                     Run a Stock Synthesis model
+save_png                Open png device and return info on the file
+                        being created
+selShapes               Launch a shiny app that displays various
+                        selectivity curves
+sspar                   Allow Multi-Plots Set the par() to options
+                        suitable for ss3diags multi plots.
+stackpoly               modified from "stackpoly" by Jim Lemon from
+                        "plotrix" package
+translate_3.30_to_3.24_Q_setup
+                        Use 3.30 q options to create the 3.24 q setup
+translate_3.30_to_3.24_var_adjust
+                        Use 3.30 variance adjustments to create the
+                        3.24 formatting
+tryCatch.W.E            tryCatch both warnings (with value) and errors
+tune_comps              Calculate new tunings for length and age
+                        compositions and (re)run models
+writeComment            Add a comment line to the input files
+write_fwf4              Function to write formatted table similar to
+                        table written by gdata::write.fwf from
+                        data.frame or matrix This function does not
+                        accept columns or logical with factor

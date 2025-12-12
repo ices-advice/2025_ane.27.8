@@ -1,0 +1,24 @@
+SScompsTA1.8            Francis Weighting for compositional data
+SSdeltaMVLN             Joint Distributions for Stock Status Ratios
+SSdeltaMVLN_old         Joint Distributions for Stock Status Ratios
+SSdiagsMCMC             MCMC Joint Distributions
+SSdiagsMCMC_ancient     MCMC Joint Distributions
+SShcbias                Mohn's Rho and Forecast Bias
+SSmase                  Mean Absolute Scaled Error
+SSplotEnsemble          Model ensemble plots
+SSplotHCxval            Hindcasting Cross-Validations of Multiple
+                        Models
+SSplotJABBAres          Residual plot
+SSplotKobe              KOBE phase plot
+SSplotModelcomp         Compare Multiple SS Model Estimates
+SSplotRetro             Retrospective-Forecast with One-Step Ahead
+                        Hindcasting
+SSplotRunstest          Residual Diagnostics
+SSreadMCMC              Read SS MCMC
+SSretroComps            Retrieve Composition Data from Multiple SS
+                        Models
+SSrmse                  Function for calculating RMSE used for
+                        'SSplotJABBAres()'
+SSrunstest              Residual Diagnostics Plot
+SSsettingsBratioF       Get Stock Status Settings
+ssruns_sig3             Runs Test for Residuals

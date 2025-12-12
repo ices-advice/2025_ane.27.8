@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head><title>R: R Code for Stock Synthesis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+<h1> R Code for Stock Synthesis
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;r4ss&rsquo; version 1.51.0</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+<li><a href="../NEWS">Package NEWS</a>.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<p style="text-align: center;">
+<a href="#A">A</a>
+<a href="#B">B</a>
+<a href="#C">C</a>
+<a href="#D">D</a>
+<a href="#F">F</a>
+<a href="#G">G</a>
+<a href="#I">I</a>
+<a href="#J">J</a>
+<a href="#M">M</a>
+<a href="#N">N</a>
+<a href="#P">P</a>
+<a href="#R">R</a>
+<a href="#S">S</a>
+<a href="#T">T</a>
+<a href="#W">W</a>
+</p>
+
+
+<h2><a id="A">-- A --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="add_file_header.html">add_file_header</a></td>
+<td>Add header comments to the input files</td></tr>
+<tr><td style="width: 25%;"><a href="add_legend.html">add_legend</a></td>
+<td>Add legend to plots</td></tr>
+</table>
+
+<h2><a id="B">-- B --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="bubble3.html">bubble3</a></td>
+<td>Create a bubble plot.</td></tr>
+</table>
+
+<h2><a id="C">-- C --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="calc_var_adjust.html">calc_var_adjust</a></td>
+<td>Calculate variance adjustments for discard or mean body weight data</td></tr>
+<tr><td style="width: 25%;"><a href="check_exe.html">check_exe</a></td>
+<td>Find location of executable within path or specified directory</td></tr>
+<tr><td style="width: 25%;"><a href="check_inputlist.html">check_inputlist</a></td>
+<td>Check input argument 'inputlist'</td></tr>
+<tr><td style="width: 25%;"><a href="copy_SS_inputs.html">copy_SS_inputs</a></td>
+<td>Copy a the Stock Synthesis input files from one directory to another</td></tr>
+</table>
+
+<h2><a id="D">-- D --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="DoProjectPlots.html">DoProjectPlots</a></td>
+<td>Deprecated function to make plots from Andre Punt's Rebuilder program.</td></tr>
+<tr><td style="width: 25%;"><a href="download_models.html">download_models</a></td>
+<td>Download SS3 test models</td></tr>
+</table>
+
+<h2><a id="F">-- F --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="file_increment.html">file_increment</a></td>
+<td>Rename key Stock Synthesis output files by adding integer value</td></tr>
+</table>
+
+<h2><a id="G">-- G --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="getADMBHessian.html">getADMBHessian</a></td>
+<td>Read admodel.hes file</td></tr>
+<tr><td style="width: 25%;"><a href="get_areacols.html">get_areacols</a></td>
+<td>Get default vector of colors for each area</td></tr>
+<tr><td style="width: 25%;"><a href="get_comments.html">get_comments</a></td>
+<td>Collect comments lines starting from "#C" in datfile, ctlfile, starter.ss, forecast.ss etc</td></tr>
+<tr><td style="width: 25%;"><a href="get_dat_new_name.html">get_dat_new_name</a></td>
+<td>Get the name of the data .ss_new file in a directory</td></tr>
+<tr><td style="width: 25%;"><a href="get_last_phase.html">get_last_phase</a></td>
+<td>Get the highest phase used in the control file</td></tr>
+<tr><td style="width: 25%;"><a href="get_par_name.html">get_par_name</a></td>
+<td>Get the name of the .par file in a directory</td></tr>
+<tr><td style="width: 25%;"><a href="get_SIS_info.html">get_SIS_info</a></td>
+<td>Gather information for the NOAA Species Information System (SIS)</td></tr>
+<tr><td style="width: 25%;"><a href="get_ss3_exe.html">get_ss3_exe</a></td>
+<td>Download the Stock Synthesis (SS3) executable</td></tr>
+<tr><td style="width: 25%;"><a href="get_tuning_table.html">get_tuning_table</a></td>
+<td>Get the tuning table</td></tr>
+<tr><td style="width: 25%;"><a href="get_tv_parlabs.html">get_tv_parlabs</a></td>
+<td>Get time varying parameter labels</td></tr>
+</table>
+
+<h2><a id="I">-- I --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="is.wholenumber.html">is.wholenumber</a></td>
+<td>Utility function to test if x is "numerically" integer wrt machine epsilon taken from example section of help of is.integer</td></tr>
+<tr><td style="width: 25%;"><a href="iterate_jitter.html">iterate_jitter</a></td>
+<td>Execute a single jittered model run</td></tr>
+</table>
+
+<h2><a id="J">-- J --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="jitter.html">jitter</a></td>
+<td>Iteratively run Stock Synthesis with jittered starting values</td></tr>
+</table>
+
+<h2><a id="M">-- M --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="make_multifig.html">make_multifig</a></td>
+<td>Create multi-figure plots.</td></tr>
+<tr><td style="width: 25%;"><a href="make_multifig_sexratio.html">make_multifig_sexratio</a></td>
+<td>Create multi-figure sex ratio plots.</td></tr>
+<tr><td style="width: 25%;"><a href="mcmc.nuisance.html">mcmc.nuisance</a></td>
+<td>Summarize nuisance MCMC output</td></tr>
+<tr><td style="width: 25%;"><a href="mcmc.out.html">mcmc.out</a></td>
+<td>Summarize, analyze and plot key MCMC output.</td></tr>
+<tr><td style="width: 25%;"><a href="mountains.html">mountains</a></td>
+<td>Make shaded polygons with a mountain-like appearance</td></tr>
+</table>
+
+<h2><a id="N">-- N --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="NegLogInt_Fn.html">NegLogInt_Fn</a></td>
+<td>Perform SS implementation of Laplace Approximation</td></tr>
+</table>
+
+<h2><a id="P">-- P --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="PinerPlot.html">PinerPlot</a></td>
+<td>Make plot of likelihood contributions by fleet</td></tr>
+<tr><td style="width: 25%;"><a href="plotCI.html">plotCI</a></td>
+<td>Plot points with confidence intervals.</td></tr>
+<tr><td style="width: 25%;"><a href="populate_multiple_folders.html">populate_multiple_folders</a></td>
+<td>Populate multiple Stock Synthesis folders with input files</td></tr>
+<tr><td style="width: 25%;"><a href="profile.html">profile</a></td>
+<td>Run a likelihood profile in Stock Synthesis.</td></tr>
+</table>
+
+<h2><a id="R">-- R --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="read.admbFit.html">read.admbFit</a></td>
+<td>Read ADMB .par and .cor files.</td></tr>
+<tr><td style="width: 25%;"><a href="retro.html">retro</a></td>
+<td>Run a retrospective analyses</td></tr>
+<tr><td style="width: 25%;"><a href="rich.colors.short.html">rich.colors.short</a></td>
+<td>Make a vector of colors.</td></tr>
+<tr><td style="width: 25%;"><a href="run.html">run</a></td>
+<td>Run a Stock Synthesis model</td></tr>
+</table>
+
+<h2><a id="S">-- S --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="save_png.html">save_png</a></td>
+<td>Open png device and return info on the file being created</td></tr>
+<tr><td style="width: 25%;"><a href="selShapes.html">selShapes</a></td>
+<td>Launch a shiny app that displays various selectivity curves</td></tr>
+<tr><td style="width: 25%;"><a href="SSbiologytables.html">SSbiologytables</a></td>
+<td>A function to create a table of biology for assessment reporting: length, weight, % mature, fecundity, and selectivity</td></tr>
+<tr><td style="width: 25%;"><a href="SSdiagsTime2Year.html">SSdiagsTime2Year</a></td>
+<td>Convert Time-Steps</td></tr>
+<tr><td style="width: 25%;"><a href="SSexecutivesummary.html">SSexecutivesummary</a></td>
+<td>Create executive summary tables from an SS3 Report.sso file</td></tr>
+<tr><td style="width: 25%;"><a href="SSgetMCMC.html">SSgetMCMC</a></td>
+<td>Read MCMC output.</td></tr>
+<tr><td style="width: 25%;"><a href="SSgetoutput.html">SSgetoutput</a></td>
+<td>Get output from multiple Stock Synthesis models.</td></tr>
+<tr><td style="width: 25%;"><a href="SSmakeMmatrix.html">SSmakeMmatrix</a></td>
+<td>Convert a matrix of natural mortality values into inputs for Stock Synthesis</td></tr>
+<tr><td style="width: 25%;"><a href="SSMethod.Cond.TA1.8.html">SSMethod.Cond.TA1.8</a></td>
+<td>Apply Francis composition weighting method TA1.8 for conditional age-at-length fits</td></tr>
+<tr><td style="width: 25%;"><a href="SSMethod.TA1.8.html">SSMethod.TA1.8</a></td>
+<td>Apply Francis composition weighting method TA1.8</td></tr>
+<tr><td style="width: 25%;"><a href="SSmohnsrho.html">SSmohnsrho</a></td>
+<td>Calculate Mohn's rho values for select quantities</td></tr>
+<tr><td style="width: 25%;"><a href="sspar.html">sspar</a></td>
+<td>Allow Multi-Plots Set the par() to options suitable for ss3diags multi plots.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotAgeMatrix.html">SSplotAgeMatrix</a></td>
+<td>Plot matrix of either length or observed age at true age</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotBiology.html">SSplotBiology</a></td>
+<td>Plot biology related quantities.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotCatch.html">SSplotCatch</a></td>
+<td>Plot catch related quantities.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotCohortCatch.html">SSplotCohortCatch</a></td>
+<td>Plot cumulative catch by cohort.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotComparisons.html">SSplotComparisons</a></td>
+<td>plot model comparisons</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotComps.html">SSplotComps</a></td>
+<td>Plot composition data and fits.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotData.html">SSplotData</a></td>
+<td>Timeline of presence/absence of data by type, year, and fleet.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotDiscard.html">SSplotDiscard</a></td>
+<td>Plot fit to discard fraction.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotDynamicB0.html">SSplotDynamicB0</a></td>
+<td>Plot Dynamic B0</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotIndices.html">SSplotIndices</a></td>
+<td>Plot indices of abundance and associated quantities.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotMCMC_ExtraSelex.html">SSplotMCMC_ExtraSelex</a></td>
+<td>Plot uncertainty around chosen selectivity ogive from MCMC.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotMnwt.html">SSplotMnwt</a></td>
+<td>Plot mean weight data and fits.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotMovementMap.html">SSplotMovementMap</a></td>
+<td>Show movement rates on a map.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotMovementRates.html">SSplotMovementRates</a></td>
+<td>Plot movement rates from model output</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotNumbers.html">SSplotNumbers</a></td>
+<td>Plot numbers-at-age related data and fits.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotPars.html">SSplotPars</a></td>
+<td>Plot distributions of priors, posteriors, and estimates.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotProfile.html">SSplotProfile</a></td>
+<td>Plot likelihood profile results</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotRecdevs.html">SSplotRecdevs</a></td>
+<td>Plot recruitment deviations</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotRecdist.html">SSplotRecdist</a></td>
+<td>Plot of recruitment distribution among areas and seasons</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotRetroRecruits.html">SSplotRetroRecruits</a></td>
+<td>Make squid plot of retrospectives of recruitment deviations.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotSelex.html">SSplotSelex</a></td>
+<td>Plot selectivity</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotSexRatio.html">SSplotSexRatio</a></td>
+<td>Plot sex-ratio data and fits for two sex models</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotSpawnrecruit.html">SSplotSpawnrecruit</a></td>
+<td>Plot spawner-recruit curve.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotSPR.html">SSplotSPR</a></td>
+<td>Plot Spawning Potential Ratio (SPR) quantities.</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotSummaryF.html">SSplotSummaryF</a></td>
+<td>Plot the summary F (or harvest rate).</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotTags.html">SSplotTags</a></td>
+<td>Plot tagging data and fits</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotTimeseries.html">SSplotTimeseries</a></td>
+<td>Plot timeseries data</td></tr>
+<tr><td style="width: 25%;"><a href="SSplotYield.html">SSplotYield</a></td>
+<td>Plot yield and surplus production.</td></tr>
+<tr><td style="width: 25%;"><a href="SSsummarize.html">SSsummarize</a></td>
+<td>Summarize the output from multiple Stock Synthesis models.</td></tr>
+<tr><td style="width: 25%;"><a href="SStableComparisons.html">SStableComparisons</a></td>
+<td>make table comparing quantities across models</td></tr>
+<tr><td style="width: 25%;"><a href="SSunavailableSpawningOutput.html">SSunavailableSpawningOutput</a></td>
+<td>Plot unavailable spawning output</td></tr>
+<tr><td style="width: 25%;"><a href="SS_changepars.html">SS_changepars</a></td>
+<td>Change parameters, bounds, or phases in the control file.</td></tr>
+<tr><td style="width: 25%;"><a href="SS_decision_table_stuff.html">SS_decision_table_stuff</a></td>
+<td>Extract total catch, spawning output, and fraction unfished from forecast years</td></tr>
+<tr><td style="width: 25%;"><a href="SS_doRetro.html">SS_doRetro</a></td>
+<td>Deprecated function to run a retrospective analyses, renamed to retro()</td></tr>
+<tr><td style="width: 25%;"><a href="SS_fitbiasramp.html">SS_fitbiasramp</a></td>
+<td>Estimate bias adjustment for recruitment deviates</td></tr>
+<tr><td style="width: 25%;"><a href="SS_ForeCatch.html">SS_ForeCatch</a></td>
+<td>Create table of fixed forecast catches</td></tr>
+<tr><td style="width: 25%;"><a href="SS_html.html">SS_html</a></td>
+<td>Create HTML files to view figures in browser.</td></tr>
+<tr><td style="width: 25%;"><a href="SS_makeHTMLdiagnostictable.html">SS_makeHTMLdiagnostictable</a></td>
+<td>Make html diagnostic tables</td></tr>
+<tr><td style="width: 25%;"><a href="SS_output.html">SS_output</a></td>
+<td>A function to create a list object for the output from Stock Synthesis</td></tr>
+<tr><td style="width: 25%;"><a href="SS_parlines.html">SS_parlines</a></td>
+<td>Get parameter lines from Stock Synthesis control file</td></tr>
+<tr><td style="width: 25%;"><a href="SS_plots.html">SS_plots</a></td>
+<td>plot many quantities related to output from Stock Synthesis</td></tr>
+<tr><td style="width: 25%;"><a href="SS_profile.html">SS_profile</a></td>
+<td>Deprecated function to run a likelihood profile, renamed to profile().</td></tr>
+<tr><td style="width: 25%;"><a href="SS_read.html">SS_read</a></td>
+<td>Read all Stock Synthesis input files for a model</td></tr>
+<tr><td style="width: 25%;"><a href="SS_readctl.html">SS_readctl</a></td>
+<td>Read control file from SS</td></tr>
+<tr><td style="width: 25%;"><a href="SS_readctl_3.24.html">SS_readctl_3.24</a></td>
+<td>Deprecated: read control file from SS version 3.24</td></tr>
+<tr><td style="width: 25%;"><a href="SS_readctl_3.30.html">SS_readctl_3.30</a></td>
+<td>read control file from SS version 3.30</td></tr>
+<tr><td style="width: 25%;"><a href="SS_readdat.html">SS_readdat</a></td>
+<td>read Stock Synthesis data file</td></tr>
+<tr><td style="width: 25%;"><a href="SS_readdat_2.00.html">SS_readdat_2.00</a></td>
+<td>Deprecated: read data file from SS version 2.00</td></tr>
+<tr><td style="width: 25%;"><a href="SS_readdat_3.00.html">SS_readdat_3.00</a></td>
+<td>Deprecate: read data file from SS version 3.00</td></tr>
+<tr><td style="width: 25%;"><a href="SS_readdat_3.24.html">SS_readdat_3.24</a></td>
+<td>Deprecated: read data file from SS version 3.24</td></tr>
+<tr><td style="width: 25%;"><a href="SS_readdat_3.30.html">SS_readdat_3.30</a></td>
+<td>read data file from SS version 3.30</td></tr>
+<tr><td style="width: 25%;"><a href="SS_readforecast.html">SS_readforecast</a></td>
+<td>read forecast file</td></tr>
+<tr><td style="width: 25%;"><a href="SS_readpar_3.24.html">SS_readpar_3.24</a></td>
+<td>Deprecated: read ss.par file from SS version 3.24</td></tr>
+<tr><td style="width: 25%;"><a href="SS_readpar_3.30.html">SS_readpar_3.30</a></td>
+<td>read .par file from SS version 3.30</td></tr>
+<tr><td style="width: 25%;"><a href="SS_readstarter.html">SS_readstarter</a></td>
+<td>Read Stock Synthesis starter file as a list</td></tr>
+<tr><td style="width: 25%;"><a href="SS_readwtatage.html">SS_readwtatage</a></td>
+<td>Read in a weight-at-age data file as a data frame</td></tr>
+<tr><td style="width: 25%;"><a href="SS_read_summary.html">SS_read_summary</a></td>
+<td>read ss_summary file</td></tr>
+<tr><td style="width: 25%;"><a href="SS_recdevs.html">SS_recdevs</a></td>
+<td>Insert a vector of recruitment deviations into the control file.</td></tr>
+<tr><td style="width: 25%;"><a href="SS_RunJitter.html">SS_RunJitter</a></td>
+<td>Deprecated function to run jitters, renamed to jitter()</td></tr>
+<tr><td style="width: 25%;"><a href="SS_Sensi_plot.html">SS_Sensi_plot</a></td>
+<td>Create relative sensitivity plots as described in Cope and Gertseva (2020)</td></tr>
+<tr><td style="width: 25%;"><a href="SS_tune_comps.html">SS_tune_comps</a></td>
+<td>Deprecated function to tune composition data, renamed to tune_comps()</td></tr>
+<tr><td style="width: 25%;"><a href="SS_varadjust.html">SS_varadjust</a></td>
+<td>Modify variance and sample size adjustments in the control file</td></tr>
+<tr><td style="width: 25%;"><a href="SS_write.html">SS_write</a></td>
+<td>Write all Stock Synthesis input files for a model</td></tr>
+<tr><td style="width: 25%;"><a href="SS_writectl.html">SS_writectl</a></td>
+<td>Write Stock Synthesis control file</td></tr>
+<tr><td style="width: 25%;"><a href="SS_writectl_3.24.html">SS_writectl_3.24</a></td>
+<td>Deprecated: write 3.24 control file</td></tr>
+<tr><td style="width: 25%;"><a href="SS_writectl_3.30.html">SS_writectl_3.30</a></td>
+<td>write control file for SS3 version 3.30</td></tr>
+<tr><td style="width: 25%;"><a href="SS_writedat.html">SS_writedat</a></td>
+<td>write Stock Synthesis data file</td></tr>
+<tr><td style="width: 25%;"><a href="SS_writedat_3.24.html">SS_writedat_3.24</a></td>
+<td>Deprecated: write data file for SS version 3.24</td></tr>
+<tr><td style="width: 25%;"><a href="SS_writedat_3.30.html">SS_writedat_3.30</a></td>
+<td>write data file for SS version 3.30</td></tr>
+<tr><td style="width: 25%;"><a href="SS_writeforecast.html">SS_writeforecast</a></td>
+<td>write forecast file</td></tr>
+<tr><td style="width: 25%;"><a href="SS_writepar_3.24.html">SS_writepar_3.24</a></td>
+<td>Deprecated: write ss.par file from SS version 3.24</td></tr>
+<tr><td style="width: 25%;"><a href="SS_writepar_3.30.html">SS_writepar_3.30</a></td>
+<td>write .par file from SS version 3.30</td></tr>
+<tr><td style="width: 25%;"><a href="SS_writestarter.html">SS_writestarter</a></td>
+<td>write starter file</td></tr>
+<tr><td style="width: 25%;"><a href="SS_writewtatage.html">SS_writewtatage</a></td>
+<td>Write weight-at-age file</td></tr>
+<tr><td style="width: 25%;"><a href="stackpoly.html">stackpoly</a></td>
+<td>modified from "stackpoly" by Jim Lemon from "plotrix" package</td></tr>
+</table>
+
+<h2><a id="T">-- T --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="translate_3.30_to_3.24_Q_setup.html">translate_3.30_to_3.24_Q_setup</a></td>
+<td>Use 3.30 q options to create the 3.24 q setup</td></tr>
+<tr><td style="width: 25%;"><a href="translate_3.30_to_3.24_var_adjust.html">translate_3.30_to_3.24_var_adjust</a></td>
+<td>Use 3.30 variance adjustments to create the 3.24 formatting</td></tr>
+<tr><td style="width: 25%;"><a href="tryCatch.W.E.html">tryCatch.W.E</a></td>
+<td>tryCatch both warnings (with value) and errors</td></tr>
+<tr><td style="width: 25%;"><a href="TSCplot.html">TSCplot</a></td>
+<td>Create a plot for the TSC report</td></tr>
+<tr><td style="width: 25%;"><a href="tune_comps.html">tune_comps</a></td>
+<td>Calculate new tunings for length and age compositions and (re)run models</td></tr>
+</table>
+
+<h2><a id="W">-- W --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="writeComment.html">writeComment</a></td>
+<td>Add a comment line to the input files</td></tr>
+<tr><td style="width: 25%;"><a href="write_fwf4.html">write_fwf4</a></td>
+<td>Function to write formatted table similar to table written by gdata::write.fwf from data.frame or matrix This function does not accept columns or logical with factor</td></tr>
+</table>
+</div></body></html>
